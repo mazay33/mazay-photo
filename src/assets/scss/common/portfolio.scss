@@ -1,0 +1,28 @@
+.intro {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+
+  @media screen and (max-width: $smDesktopWidth) {
+    flex-direction: column;
+    align-items: center;
+}
+}
+.intro__item{
+  padding: 15px;
+
+  & img{
+      max-width: 440px;
+      display: block;
+      max-height: auto;
+      width: 100%;
+      margin-bottom: 25px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px 5px rgb(170, 170, 170, 0.5);
+  }
+}
+
+.intro__title{
+  font-size: 20px;
+  letter-spacing: 1.5px;
+}

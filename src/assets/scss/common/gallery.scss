@@ -1,0 +1,15 @@
+
+.gallery{
+display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+& img{
+    display: block;
+    width: 100%;
+    max-width: 380px;
+    max-height: auto;
+    margin: 7px;
+    cursor: pointer;
+}
+}

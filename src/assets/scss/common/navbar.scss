@@ -1,0 +1,167 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  background-color: $g-0;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@font-face {
+  font-family: "Boya";
+  src: url(/src/assets/fonts/Boya/BOYA-alternative-regular.woff);
+}
+.navbar__logo {
+  font-family:"Boya";
+  text-transform: uppercase;
+  color: $g-999;
+  font-size: 50px;
+  letter-spacing: 5px;
+}
+
+.navbar__list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar__item {
+  margin-right: 30px;
+  cursor: pointer;
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.navbar__link {
+  position: relative;
+  color: $mainFontColor;
+
+  &:after{
+    content: "";
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2px; /* Высота линии */
+    background-color: #a1a1a1; /* Цвет подчеркивания при исчезании линии*/
+    transition: width 0.5s; /* Время эффекта */
+  }
+
+  &:hover:after{
+    content: "";
+    width: 100%;
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    height: 2px; /* Высота линии */
+    background-color: #000;
+    transition: width 0.5s;  /* Время эффекта */
+  }
+  &:hover{
+    opacity: 1;
+  }
+  
+  &.router-link-active:after {
+    content: "";
+    width: 100%;
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    height: 2px; /* Высота линии */
+    background-color: #000;
+    transition: width 0.5s;  /* Время эффекта */
+  }
+}
+
+// BURGER-MENU===============================================================
+
+.navbar__burger{
+  display: none
+}
+
+@media screen and (max-width: 768px){
+
+.navbar__list{
+  display: block;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  transition: all 0.3s ease 0s;
+  background-color: #fff;
+  padding: 70px 10px 20px 10px;
+  z-index: 4;
+
+  &.show{
+      left: 0
+  }
+}
+.navbar__item{
+  opacity: 0;
+  transform:translateX(-50px);
+  
+}
+.navbar__item.show{
+      opacity: 1;
+  transform: translateX(0);
+  transition: 0.4s ease-in 
+}
+.navbar__burger{
+  display: block;
+  width: 30px;
+  height: 20px;
+  position: relative;
+  z-index: 5;
+
+  & span{
+  background-color: #000;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  top: 9px;
+  transition: all 0.3s ease 0s;
+  }
+
+  &::before{
+      top: 0;
+  }
+  &::after{
+      bottom: 0;
+  }
+
+  &:before, &:after{
+  content: '';
+  background-color: #000;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  left: 0;
+  transition: all 0.2s ease 0s;
+  }
+
+  &.show:before{
+          transform: rotate(45deg);
+  top: 9px;
+  }
+  &.show:after{
+          transform: rotate(-45deg);
+  bottom: 9px;
+  }
+  &.show span{
+      transform: scale(0)
+  }
+}
+}
