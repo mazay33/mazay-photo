@@ -2,7 +2,10 @@
     <div class="wrapper">
     <TheHeader v-if="$route.name !== 'Photo'" />
     <div class="wrapper-content">
-            <router-view >
+            <router-view v-slot ="{ Component }">
+                <transition name="fade" mode="out-in">
+                    <component :is="Component" />
+                </transition>
             </router-view>
     </div>
     <TheFooter v-if="$route.name !== 'Photo'" />
@@ -28,7 +31,7 @@ components: {
 <style lang="scss">
     .fade-enter-active,
     .fade-leave-active{
-        transition: opacity 0.3s;
+        transition: opacity 0.5s;
     }
     .fade-enter-from,
     .fade-leave-to{
