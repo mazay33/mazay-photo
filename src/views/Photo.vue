@@ -1,15 +1,15 @@
 <template>
 <div class="container">
-<div class="slide-index">{{+this.$route.params.index +1}}/{{this.category.photos.length}}</div>
-<router-link class="slide-close" :to="{name: 'Album', params: {id: category.category}}"></router-link>
 <div class="photo">
+    <div class="slide-index">{{+this.$route.params.index +1}}/{{this.category.photos.length}}</div>
+    <router-link class="slide-close" :to="{name: 'Album', params: {id: category.category}}"></router-link>
     <div @click="prev" class="photo__selector photo__selector_prev">
         
     </div>
     <div class="photo__img">
         <img :src="currentPhoto ? currentPhoto.src : ''" alt="">
     </div>
-    <div @click="next" class="photo__selector photo__selector_next">
+    <div @click="next" class="photo__selector photo__selector_next active">
         
     </div>
 </div>
@@ -17,6 +17,7 @@
 </template>
 
 <script>
+
 import { mapState } from 'vuex'
 export default {
     computed: {
@@ -53,7 +54,7 @@ export default {
     },
     methods: {
         next() {
-            this.$router.push({
+            +this.$router.push({
                 name: 'Photo',
                 params: {
                     category: this.categoryId,
@@ -62,7 +63,7 @@ export default {
             })
         },
         prev() {
-            this.$router.push({
+            +this.$router.push({
                 name: 'Photo',
                 params: {
                     category: this.categoryId,
@@ -70,7 +71,37 @@ export default {
                 }
             })
         },
+        escape(){
+            this.$router.push({
+                name: 'Album',
+                params: {
+                    id: 'city'
+                }
+            })
+        },
+        arrowSlide(e) {
+            switch (e.key) {
+                case 'ArrowRight':
+                    this.next()
+                    break;
+                case 'ArrowLeft':
+                    this.prev()
+                    break;
+                case 'Escape':
+                    this.escape()
+                    break;
+            }
+        }
+        
     },
+
+    mounted: function() {
+    window.addEventListener('keyup',this.arrowSlide);
+    },
+
+    beforeUnmount: function() {
+    window.removeEventListener('keyup',this.arrowSlide);
+}
 }
 </script>
 
@@ -88,6 +119,7 @@ export default {
 
 .container{
     max-width: 100%;
+    padding: 0;
 }
 .slide-index{
     position: absolute;
