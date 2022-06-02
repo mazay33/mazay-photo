@@ -2,14 +2,14 @@
 <div class="container">
 <div class="photo">
     <div class="slide-index">{{+this.$route.params.index +1}}/{{this.category.photos.length}}</div>
-    <router-link class="slide-close" :to="{name: 'Album', params: {id: category.category}}"></router-link>
+    <div @click='escape' class="slide-close"></div>
     <div @click="prev" class="photo__selector photo__selector_prev">
         
     </div>
     <div class="photo__img">
         <img :src="currentPhoto ? currentPhoto.src : ''" alt="">
     </div>
-    <div @click="next" class="photo__selector photo__selector_next active">
+    <div @click="next" class="photo__selector photo__selector_next">
         
     </div>
 </div>
@@ -17,7 +17,6 @@
 </template>
 
 <script>
-
 import { mapState } from 'vuex'
 export default {
     computed: {
@@ -75,7 +74,7 @@ export default {
             this.$router.push({
                 name: 'Album',
                 params: {
-                    id: 'city'
+                    id: this.category.category
                 }
             })
         },
