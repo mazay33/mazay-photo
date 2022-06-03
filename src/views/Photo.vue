@@ -1,16 +1,15 @@
 <template>
 <div class="container">
 <div class="photo">
-    <div class="slide-index">{{+this.$route.params.index +1}}/{{this.category.photos.length}}</div>
-    <div @click='escape' class="slide-close"></div>
-    <div @click="prev" class="photo__selector photo__selector_prev">
-        
-    </div>
+    <div class="photo__index">{{+this.$route.params.index +1}}/{{this.category.photos.length}}</div>
+    <div @click='escape' class="photo__close"></div>
+    <div @click="prev" class="photo__selector photo__selector_prev"></div>
     <div class="photo__img">
-        <img :src="currentPhoto ? currentPhoto.src : ''" alt="">
+            <transition name="fade" mode="out-in" >
+            <img :src="currentPhoto ? currentPhoto.src : ''" alt="" :key="currentPhoto.src">
+            </transition>
     </div>
-    <div @click="next" class="photo__selector photo__selector_next">
-        
+    <div @click="next" class="photo__selector photo__selector_next"> 
     </div>
 </div>
 </div>
@@ -90,8 +89,7 @@ export default {
                     this.escape()
                     break;
             }
-        }
-        
+        },
     },
 
     mounted: function() {
@@ -105,6 +103,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 @keyframes fadeImage {
     0% {
         opacity: 0;
@@ -116,47 +115,20 @@ export default {
     }
 }
 
+.fade-enter-active,
+    .fade-leave-active{
+        transition: opacity 0.3s;
+    }
+    .fade-enter-from,
+    .fade-leave-to{
+        opacity: 0;
+    }
+
 .container{
     max-width: 100%;
     padding: 0;
 }
-.slide-index{
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin: -100px 0 0 30px;
-    opacity: 0.5;
-    letter-spacing: 1px;
-    color: #fff
-}
-.slide-close{
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: -100px 30px 0 0;
-    width: 32px;
-    height: 32px;
-    opacity: 0.5;
-    transition: all 0.2s linear;
-    &:hover{
-        opacity: 1;
-        transition: all 0.2s linear;
-    }
-    &:before,&:after{
-        position: absolute;
-        left: 15px;
-        content: ' ';
-        height: 33px;
-        width: 2px;
-        background-color: rgb(223, 223, 223);
-    }
-    &::before{
-    transform: rotate(45deg); 
-    }
-    &::after{
-    transform: rotate(-45deg); 
-    }
-}
+
 .photo {
     display: flex;
     justify-content: space-between;
@@ -200,5 +172,45 @@ export default {
         transition: all .2s linear;
         }
     }
+
+.photo__index{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: -100px 0 0 30px;
+    opacity: 0.5;
+    letter-spacing: 1px;
+    color: #fff
+}
+
+.photo__close{
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: -100px 30px 0 0;
+    width: 32px;
+    height: 32px;
+    opacity: 0.5;
+    transition: all 0.2s linear;
+    &:hover{
+        opacity: 1;
+        transition: all 0.2s linear;
+    }
+    &:before,&:after{
+        position: absolute;
+        left: 15px;
+        content: ' ';
+        height: 33px;
+        width: 2px;
+        background-color: rgb(223, 223, 223);
+    }
+    &::before{
+    transform: rotate(45deg); 
+    }
+    &::after{
+    transform: rotate(-45deg); 
+    }
+}
 }
 </style>

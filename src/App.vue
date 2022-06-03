@@ -3,7 +3,7 @@
     <TheHeader v-if="$route.name !== 'Photo'" />
     <div class="wrapper-content">
             <router-view v-slot ="{ Component }">
-                <transition name="fade" mode="out-in">
+                <transition appear name="fade" mode="out-in">
                     <component :is="Component" />
                 </transition>
             </router-view>
@@ -21,9 +21,6 @@ components: {
         TheHeader,
         TheFooter
     },
-    mounted() {
-        console.log(this.$route);
-    }
 }
 
 </script>
