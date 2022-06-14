@@ -1,15 +1,16 @@
 <template>
 <div class="container">
-<div class="photo">
-    <div class="photo__index">{{+this.$route.params.index +1}}/{{this.category.photos.length}}</div>
-    <div @click='escape' class="photo__close"></div>
-    <div @click="prev" class="photo__selector photo__selector_prev"></div>
+<div class="photo" @click="closeOnClick">
+    <div class="photo__index" ref="index">{{+this.$route.params.index +1}}/{{this.category.photos.length}}</div>
+    <div class="photo__close" ref="close"></div>
+    <div @click="prev" ref="leftSelector" class="photo__selector photo__selector_prev"></div>
     <div class="photo__img">
             <transition name="fade" mode="out-in" >
-            <img :src="currentPhoto ? currentPhoto.src : ''" alt="" :key="currentPhoto.src">
+            <img ref="img" 
+                :src="currentPhoto ? currentPhoto.src : ''" alt="" :key="index">
             </transition>
     </div>
-    <div @click="next" class="photo__selector photo__selector_next"> 
+    <div @click="next" ref="rightSelector" class="photo__selector photo__selector_next"> 
     </div>
 </div>
 </div>
@@ -17,6 +18,7 @@
 
 <script>
 import { mapState } from 'vuex'
+
 export default {
     computed: {
         ...mapState([
@@ -30,6 +32,9 @@ export default {
         },
         category() {
             return this.categories.find(el => el.category === this.categoryId)
+        },
+        photos(){
+            return this.category.photos
         },
         currentPhoto() {
             if (this.category) {
@@ -77,7 +82,15 @@ export default {
                 }
             })
         },
-        arrowSlide(e) {
+        closeOnClick(e){
+            if (e.target != this.$refs.img &&
+                e.target != this.$refs.leftSelector &&
+                e.target != this.$refs.rightSelector &&
+                e.target != this.$refs.index){
+                this.escape()
+            }
+        },
+        arrowSlide(e){
             switch (e.key) {
                 case 'ArrowRight':
                     this.next()
@@ -103,7 +116,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.info{
+    color: #fff;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 300px;
+}
 @keyframes fadeImage {
     0% {
         opacity: 0;
@@ -116,13 +135,13 @@ export default {
 }
 
 .fade-enter-active,
-    .fade-leave-active{
-        transition: opacity 0.3s;
-    }
-    .fade-enter-from,
-    .fade-leave-to{
-        opacity: 0;
-    }
+.fade-leave-active{
+    transition: opacity 0.3s;
+}
+.fade-enter-from,
+.fade-leave-to{
+    opacity: 0;
+}
 
 .container{
     max-width: 100%;
@@ -130,42 +149,52 @@ export default {
 }
 
 .photo {
+    position: relative;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    align-content: center;
+    justify-content: center;
     margin-top: -120px;
     height: 100vh;
     background-color: #000;
+    overflow: hidden;
     &__img{
+        display: flex;
+        align-items: center;
         animation: fadeImage .5s 
     }
 
     &__img img {
         display: block;
-        height: 100vh;
-        object-fit: cover;
+        max-height: 100vh;
     }
     &__selector {
-        flex: none;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        position: absolute;
+        top: 45%;
         cursor: pointer;
-        text-transform: uppercase;
-
         width: 40px;
         height: 40px;
         border-top: 1px solid #fff;
         border-right: 1px solid #fff;
-        margin: 0 50px 0 50px;
-        opacity: 0.3;
+        opacity: 0.5;
         transition: all .2s linear;
+            &:before {
+            content: '';
+            position: absolute;
+            display: block;
+            top: -10vh;
+            left: -100vh;
+            right: -100vh;
+            bottom: 0;
+            transform: rotate(45deg);
+            }
 
     &_next{
         transform: rotate(45deg);
+        right: 30px;
     }   
     &_prev{
         transform: rotate(-135deg);
+        left: 30px;
     }   
     &:hover{
         opacity: 1;
@@ -177,7 +206,8 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-    margin: -100px 0 0 30px;
+    z-index: 10;
+    margin: 15px;
     opacity: 0.5;
     letter-spacing: 1px;
     color: #fff
@@ -188,7 +218,8 @@ export default {
     position: absolute;
     top: 0;
     right: 0;
-    margin: -100px 30px 0 0;
+    z-index: 10;
+    margin: 15px;
     width: 32px;
     height: 32px;
     opacity: 0.5;

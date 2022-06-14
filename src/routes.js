@@ -29,6 +29,11 @@ const routers = createRouter({
             component: ()=> import("@/views/Album.vue"), 
         },
         {
+            path: '/gallery/:id',
+            name: 'Album',
+            component: ()=> import("@/views/Gallery.vue"), 
+        },
+        {
             path: '/photo/:category/:index',
             name: 'Photo',
             component: ()=> import("@/views/Photo.vue"), 

@@ -1,6 +1,6 @@
 <template>
     <div class="wrapper">
-    <TheHeader v-if="$route.name !== 'Photo'" />
+    <TheHeader />
     <div class="wrapper-content">
             <router-view v-slot ="{ Component }">
                 <transition appear name="fade" mode="out-in">
@@ -8,7 +8,7 @@
                 </transition>
             </router-view>
     </div>
-    <TheFooter v-if="$route.name !== 'Photo'" />
+    <TheFooter />
     </div>
 </template>
 
@@ -20,7 +20,7 @@ export default {
 components: {
         TheHeader,
         TheFooter
-    },
+    }
 }
 
 </script>
