@@ -13,10 +13,7 @@
   align-items: center;
   justify-content: space-between;
 }
-@font-face {
-  font-family: "Boya";
-  src: url(/src/assets/fonts/BOYA-alternative-regular.woff);
-}
+
 .navbar__logo {
   font-family:"Boya";
   text-transform: uppercase;
@@ -36,6 +33,9 @@
   cursor: pointer;
   &:last-child {
     margin-right: 0;
+  }
+  &_social{
+    display: none;
   }
 }
 
@@ -91,6 +91,10 @@
 
 @media screen and (max-width: 768px){
 
+body.lock{
+  overflow: hidden;
+}
+
 .navbar__list{
   display: block;
   position: fixed;
@@ -101,23 +105,48 @@
   overflow: auto;
   transition: all 0.3s ease 0s;
   background-color: #fff;
-  padding: 70px 10px 20px 10px;
+  padding: 70px 20px 20px 20px;
   z-index: 4;
+  font-size: 22px;
 
   &.show{
       left: 0
   }
 }
+
+@keyframes fade-right {
+      0%{
+          opacity: 0;
+          transform: translateX(-50px);
+      }
+      100%{
+          opacity: 1;
+          transform: translateX(0);
+      }
+}   
+
 .navbar__item{
-  opacity: 0;
-  transform:translateX(-50px);
-  
+  margin-bottom: 20px;
+  @for $i from 1 through 4 {
+    &.show{
+        &:nth-child(#{$i}) {
+        animation-delay: $i * (.2s);
+        }
+      }
+    }
+  &.show{
+    animation: .3s ease-in-out both fade-right;
+  }
+  &_social{
+    display: block;
+    & svg{
+      margin-right: 20px;
+      fill: #000;
+      
+      }
+  }
 }
-.navbar__item.show{
-      opacity: 1;
-  transform: translateX(0);
-  transition: 0.4s ease-in 
-}
+
 .navbar__burger{
   display: block;
   width: 30px;

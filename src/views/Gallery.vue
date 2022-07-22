@@ -1,6 +1,6 @@
 <template>
 <div class="container">
-    <lightgallery class="gallery"
+    <lightgallery class="gallery" 
         :settings="{ speed: 400, plugins: plugins,
         download: false,
         zoomFromOrigin: false,
@@ -17,13 +17,13 @@
             rotate: false
         }"
     >
-        <a
+        <a 
             v-for="photo in photos"
             :key="photo"
             className="gallery-item"
             :data-src="photo.src"
         >
-            <img className="img-responsive" :src="photo.src" />
+            <img className="img-responsive" data-aos="zoom-in" :src="photo.src"/>
         </a>
 
     </lightgallery>
@@ -59,6 +59,7 @@ export default {
             return this.categories.find(el => el.category === this.categoryId).photos
         }
     },
+    
 };
 </script>
 

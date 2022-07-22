@@ -3,7 +3,7 @@
     <TheHeader />
     <div class="wrapper-content">
             <router-view v-slot ="{ Component }">
-                <transition appear name="fade" mode="out-in">
+                <transition name="fade" mode="out-in">
                     <component :is="Component" />
                 </transition>
             </router-view>
@@ -15,12 +15,18 @@
 <script>
 import TheHeader from '@/components/TheHeader.vue'
 import TheFooter from '@/components/TheFooter.vue'
+import AOS from 'aos'
 
 export default {
 components: {
         TheHeader,
         TheFooter
-    }
+    },
+mounted(){
+    AOS.init({
+        duration: 800
+    })
+}
 }
 
 </script>

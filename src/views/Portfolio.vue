@@ -1,6 +1,6 @@
 <template>
 <div class="container">
-    <div class="intro">
+    <div class="intro" data-aos="fade-up">
         <div class="intro__item" v-for="(category, i) of categories" :key="i">
             <div class="intro__img">
                 <router-link :to="{name: 'Album', params: {id: category.category}}">

@@ -1,62 +1,59 @@
 <template>
 <div class="container">
-<div class="price-info">
-<div class="price">
-        <div class="price__inner">
-            <div class="price__item">
-                <div class="price__title">Индивидуальная съемка на улице</div>
-                <div class="price__photo">
-                    <img src="../assets/images/street/Tololommo/4.jpg" alt="">
-                </div>
-                <div class="price__text">                       
-                    <p>Длительность съёмки 1 час.</p>
-                    <p>— 10 снимков в обработке.</p>
-                    <p>— Срок обработки ~2 недели.</p>
-                    <p>— Отдаю исходники по желанию.</p>
-                    <p>— Помогаю с подбором локации, позированием и выбором одежды.</p>
-                    <p>— Фотографии на обработку вы можете отобрать сами.</p>
-                    <p><b>Стоимость 6000р.</b></p>
-                    <br>
-                    <p>Длительность съёмки 2 часа.</p>
-                    <p>— 15 снимков в обработке.</p>
-                    <p>— Срок обработки ~2 недели.</p>
-                    <p>— Отдаю исходники по желанию.</p>
-                    <p>— Помогаю с подбором локации, позированием и выбором одежды.</p>
-                    <p>— Фотографии на обработку вы можете отобрать сами.</p>
-                    <p><b>Стоимость 10000р.</b></p>
-                </div>
+<div class="price" data-aos="fade-up">
+    <div class="price__inner">
+        <div class="price__item">
+            <div class="price__title">Индивидуальная съемка на улице</div>
+            <div class="price__photo">
+                <img src="../assets/images/street/Tololommo/4.jpg" alt="">
             </div>
-            <div class="price__item">
-                <div class="price__title">Индивидуальная съемка в студии</div>
-                <div class="price__photo">
-                <img src="../assets/images/studio/Anya/1.jpg" alt="">
-                </div>
-                <div class="price__text">
-                    <p>Длительность съёмки 1 час.</p>
-                    <p>— 10 снимков в обработке.</p>
-                    <p>— Срок обработки ~2 недели.</p>
-                    <p>— Отдаю исходники по желанию.</p>
-                    <p>— Помогаю с подбором студии, позированием и выбором одежды.</p>
-                    <p>— Фотографии на обработку вы можете отобрать сами.</p>
-                    <p><b>Стоимость 6000р.</b></p>
-                    <br>
-                    <p>Длительность съёмки 2 часа.</p>
-                    <p>— 15 снимков в обработке.</p>
-                    <p>— Срок обработки ~2 недели.</p>
-                    <p>— Отдаю исходники по желанию.</p>
-                    <p>— Помогаю с подбором студии, позированием и выбором одежды.</p>
-                    <p>— Фотографии на обработку вы можете отобрать сами.</p>
-                    <p><b>Стоимость 10000р.</b></p>
-                </div>
+            <div class="price__text">                       
+                <p><b>Длительность съёмки 1 час.</b></p>
+                <p>— 15 снимков в авторской обработке (Ретушь + Цветокоррекция).</p>
+                <p>— Срок обработки ~2 недели.</p>
+                <p>— Отдаю исходники по желанию.</p>
+                <p>— Помогаю с подбором локации, позированием и выбором одежды.</p>
+                <p>— Фотографии на обработку вы можете отобрать сами.</p>
+                <p><b>Стоимость 6000р.</b></p>
+                <br>
+                <p><b>Длительность съёмки 2 часа.</b></p>
+                <p>— 25 снимков в авторской обработке (Ретушь + Цветокоррекция).</p>
+                <p>— Срок обработки ~2 недели.</p>
+                <p>— Отдаю исходники по желанию.</p>
+                <p>— Помогаю с подбором локации, позированием и выбором одежды.</p>
+                <p>— Фотографии на обработку вы можете отобрать сами.</p>
+                <p><b>Стоимость 10000р.</b></p>
+            </div>
+        </div>
+        <div class="price__item">
+            <div class="price__title">Индивидуальная съемка в студии</div>
+            <div class="price__photo">
+            <img src="../assets/images/studio/Anya/1.jpg" alt="">
+            </div>
+            <div class="price__text">
+                <p><b>Длительность съёмки 1 час.</b></p>
+                <p>— 15 снимков в авторской обработке (Ретушь + Цветокоррекция).</p>
+                <p>— Срок обработки ~2 недели.</p>
+                <p>— Отдаю исходники по желанию.</p>
+                <p>— Помогаю с подбором студии, позированием и выбором одежды.</p>
+                <p>— Фотографии на обработку вы можете отобрать сами.</p>
+                <p><b>Стоимость 5000р.</b></p>
+                <br>
+                <p><b>Длительность съёмки 2 часа.</b></p>
+                <p>— 25 снимков в авторской обработке (Ретушь + Цветокоррекция).</p>
+                <p>— Срок обработки ~2 недели.</p>
+                <p>— Отдаю исходники по желанию.</p>
+                <p>— Помогаю с подбором студии, позированием и выбором одежды.</p>
+                <p>— Фотографии на обработку вы можете отобрать сами.</p>
+                <p><b>Стоимость 9000р.</b></p>
             </div>
         </div>
     </div>
 
-    <div class="other" v-motion-fade-visible>
-        <div class="other__inner">
-            <div class="other__item">
-                <div class="other__title">Другие виды съемок:</div>
-                <div class="other__text">
+    <div class="price__inner" data-aos="zoom-in">
+            <div class="price__item">
+                <div class="price__title">Другие виды съемок:</div>
+                <div class="price__text">
                     <p>— Контент съемка для вашего инстаграма/блога/магазина</p>
                     <p>— Уличная съемка вашего бренда одежды/аксессуаров</p>
                     <p>— Фотосессия на крыше</p>
@@ -65,23 +62,21 @@
                     <p> Обговариваются отдельно</p>
                 </div>
             </div>
-            <div class="other__item">
-                <div class="other__photo">
+            <div class="price__item">
+                <div class="price__photo">
                     <img src="../assets/images/city/16.jpg" alt="">
                 </div>
             </div>
-        </div>
     </div>
         
-    <div class="info" div v-motion-fade-visible  >
-        <div class="info__inner">
-            <div class="info__item">
-                <div class="info__photo">
+        <div class="price__inner" data-aos="zoom-in">
+            <div class="price__item">
+                <div class="price__photo">
                     <img src="../assets/images/Contact_photo_1.jpg" alt="">
                 </div>   
             </div>
-            <div class="info__item">
-                <div class="info__text">
+            <div class="price__item">
+                <div class="price__text">
                     <p> В стоимость включена только моя работа.</p>
                     <p>Студия и услуги визажиста оплачивается отдельно.</p>                                               
                     <p> Все исходники отдаю, снимки на обработку разрешаю отбирать вам.</p> 
@@ -95,10 +90,25 @@
                     <p>— Вторая отмена/перенос бронирования.
                         Перенесенную съёмку нужно будет провести в течение месяца, иначе предоплата сгорает.</p>
                 </div>
-            <a href="contact.html"><button class="info__button">Записаться на съёмку</button></a>
+            <router-link to="contacts">
+                <button class="price__button">Записаться на съёмку</button>
+            </router-link>
             </div>
         </div>
-    </div>
-</div>
+</div> 
 </div>
 </template>
+
+
+<script>
+import {mapState} from "vuex"
+export default {
+    computed: {
+        ...mapState([
+            'categories'
+        ]),
+        
+},
+
+}
+</script>

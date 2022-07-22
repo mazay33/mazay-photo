@@ -1,28 +1,33 @@
-.contacts__inner{
+.contacts{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
-}
-
-.contacts__item{
-  padding: 15px;
-}
-
-
-.contacts__title{
-  font-size: 30px;
-  font-weight: 600;
-  margin-bottom: 60px;
-}
-
-.contacts__text{
-  font-size: 15px;
-  font-weight: 300;
-}
-
-.contacts__text p{
-  margin: 30px 0;
-  line-height: 24pt;
+  &__item{
+    max-width: 500px;
+    width: 100%;
+  }
+  &__title{
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 60px;
+  }
+  &__text{
+    font-size: 15px;
+    font-weight: 300;
+    & p{
+      margin: 30px 0;
+      line-height: 24pt;
+    }
+  }
+  &__photo img{
+    display: block;
+    width: 100%;
+    max-height: auto;
+    max-width: 400px;
+    margin-top: 50px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px 5px rgb(170, 170, 170, 0.2);
+  }
 }
 
 .form__body {
@@ -48,7 +53,8 @@ visibility: visible;
 }
 
 .form__input{
-  width: 500px;
+  max-width: 500px;
+  width: 100%;
   height: 50px;
   margin: 15px 0px 15px ;
   border: 0;
@@ -79,28 +85,6 @@ padding: 20px;
   opacity: .8;
 }
 
-@media (max-width:768px) {
-  .form__input{
-      width: 100%;
-  }
-
-}
-
-
-.contact__photo img{
-  display: block;
-  width: 100%;
-  max-height: auto;
-  max-width: 400px;
-
-}
-
-@media (max-width:1040px){
-  .contacts__inner{
-      justify-content: center;
-
-}
-}
 .form__button{
   border: none;
   font: inherit;
@@ -117,9 +101,9 @@ padding: 20px;
   left: 50%;
   transform: translate(-50%, 0);
   transition: all 0.3s ease-in-out;
+  border-radius: 15px;
 }
 
 .form__button:hover{
-  background-color: rgb(68, 68, 68);
-  border-radius: 5px;
+  opacity: 0.8;
 }

@@ -10,6 +10,7 @@
 }
 .intro__item{
   padding: 15px;
+  
 
   & img{
       max-width: 440px;
@@ -19,6 +20,11 @@
       margin-bottom: 25px;
       border-radius: 15px;
       box-shadow: 0 0 10px 5px rgb(170, 170, 170, 0.5);
+      transition: all 0.4s ease 0s;
+      &:hover{
+        opacity: 0.9;
+        transition: all 0.4s ease 0s;
+      }
   }
 }
 

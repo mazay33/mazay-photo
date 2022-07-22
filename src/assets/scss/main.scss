@@ -1,6 +1,11 @@
 @import 'utils/vars';
 @import 'utils/reset';
 
+@font-face {
+    font-family: "Boya";
+    src: url(/src/assets/fonts/BOYA-alternative-regular.woff);
+}
+
 html {
     line-height: $mainLineHeight;
     font-size: $mainFontSize;
@@ -101,9 +106,6 @@ li {
         max-width: $phoneWidth;
     }
 
-    @media screen and (max-width: $phoneWidth) {
-        max-width: $smPhoneWidth;
-    }
 }
 
 .view-sm {
