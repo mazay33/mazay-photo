@@ -1,12 +1,11 @@
 <template>
 <div class="container">
-    <lightgallery class="gallery" 
+    <lightgallery class="gallery"  data-aos="fade-up"
         :settings="{ speed: 400, plugins: plugins,
         download: false,
         zoomFromOrigin: false,
         allowMediaOverlap: true,
         toggleThumb: true,
-        showZoomInOutIcons: true,
         actualSize: false,
         mousewheel: true,
         mode: 'lg-slide'
@@ -23,7 +22,7 @@
             className="gallery-item"
             :data-src="photo.src"
         >
-            <img className="img-responsive" data-aos="zoom-in" :src="photo.src"/>
+            <img className="img-responsive" data-aos="fade-up" :src="photo.src"/>
         </a>
 
     </lightgallery>
@@ -43,7 +42,7 @@ export default {
             Lightgallery,
         },
         data: () => ({
-            plugins: [lgZoom, lgThumbnail, lgHash],
+            plugins: [lgThumbnail, lgHash],
         }),
         methods: {
             

@@ -142,9 +142,34 @@ export default createStore({
         category: 'studio',
         title: 'Индивидуальные съёмки в студии',
         img: require('@/assets/images/studio/Kate/1.jpg'),
-        photos: [{
-            src: require('@/assets/images/studio/Kate/1.jpg')
+        photos: [
+          { 
+            src: require('@/assets/images/studio/Kate/12.jpg')
           },{ 
+            src: require('@/assets/images/studio/Kate/13.jpg')
+          },{  
+            src: require('@/assets/images/studio/Kate/11.jpg')
+          },{  
+            src: require('@/assets/images/studio/Kate/15.jpg')
+          },{  
+            src: require('@/assets/images/studio/Kate/14.jpg')
+          },{  
+            src: require('@/assets/images/studio/Kate/16.jpg')
+          },{  
+            src: require('@/assets/images/studio/Varya/6.jpg')
+          },{  
+            src: require('@/assets/images/studio/Varya/3.jpg')
+          },{
+            src: require('@/assets/images/studio/Varya/7.jpg')
+          },{ 
+            src: require('@/assets/images/studio/Varya/2.jpg')
+          },{ 
+            src: require('@/assets/images/studio/Varya/4.jpg')
+          },{  
+            src: require('@/assets/images/studio/Varya/1.jpg')
+          },{  
+            src: require('@/assets/images/studio/Kate/1.jpg')
+          },{
             src: require('@/assets/images/studio/Anya/1.jpg')
           },{ 
             src: require('@/assets/images/studio/Kate/2.jpg')
@@ -160,7 +185,43 @@ export default createStore({
             src: require('@/assets/images/studio/Kris/3.jpg')
           },{  
             src: require('@/assets/images/studio/Kris/4.jpg')
-          }
+          },{  
+            src: require('@/assets/images/studio/Kate/6.jpg')
+          },{  
+            src: require('@/assets/images/studio/Kate/10.jpg')
+          },{  
+            src: require('@/assets/images/studio/Kate/8.jpg')
+          },{  
+            src: require('@/assets/images/studio/byefreya/1.jpg')
+          },{  
+            src: require('@/assets/images/studio/byefreya/3.jpg')
+          },{  
+            src: require('@/assets/images/studio/byefreya/2.jpg')
+          },{  
+            src: require('@/assets/images/studio/Iribaby/4.jpg')
+          },{  
+            src: require('@/assets/images/studio/Iribaby/1.jpg')
+          },{  
+            src: require('@/assets/images/studio/Iribaby/11.jpg')
+          },{  
+            src: require('@/assets/images/studio/Iribaby/2.jpg')
+          },{  
+            src: require('@/assets/images/studio/Ira/1.jpg')
+          },{  
+            src: require('@/assets/images/studio/Iribaby/9.jpg')
+          },{  
+            src: require('@/assets/images/studio/Iribaby/10.jpg')
+          },{  
+            src: require('@/assets/images/studio/Iribaby/5.jpg')
+          },{  
+            src: require('@/assets/images/studio/Iribaby/8.jpg')
+          },{  
+            src: require('@/assets/images/studio/ForgetName/3.jpg')
+          },{  
+            src: require('@/assets/images/studio/Ira/2.jpg')
+          },{  
+            src: require('@/assets/images/studio/ForgetName/2.jpg')
+          },
         ]
       }
     ]
