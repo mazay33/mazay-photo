@@ -12,16 +12,19 @@ const routers = createRouter({
             path: '/',
             name: 'Portfolio',
             component: Portfolio,
+            meta: {title: 'Андрей Мазаев - Фотограф'},
         },
         {
             path: '/price',
             name: 'Price',
             component: ()=> import("@/views/Price.vue"),
+            meta: {title: 'Услуги и Цены'},
         },
         {
             path: '/contacts',
             name: 'Contacts',
             component: ()=> import("@/views/Contacts.vue"), 
+            meta: {title: 'Контакты'},
         },
         {
             path: '/album/:id',
@@ -32,6 +35,7 @@ const routers = createRouter({
             path: '/gallery/:id',
             name: 'Album',
             component: ()=> import("@/views/Gallery.vue"), 
+            meta: {title: 'Галерея'},
         },
         {
             path: '/photo/:category/:index',
@@ -43,13 +47,20 @@ const routers = createRouter({
             name: "NotFound",
             component: ()=> import("@/views/NotFound.vue"),
             meta: {
-            requiresAuth: false
+            
+            title: 'Ошибочка',
             }
+            
         }
     ],
     scrollBehavior () {
         window.scrollTo(0,0)
-    }
+    },
+})
+
+routers.beforeEach((to, from, next) => {
+    document.title = to.meta.title
+    next()
 })
 
 export default routers
