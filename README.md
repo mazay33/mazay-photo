@@ -1,5 +1,7 @@
 # mazay-photo
 
+https://mazay33.com/
+
 ## Project setup
 ```
 npm install
